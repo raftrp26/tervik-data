@@ -2,4 +2,7 @@ with src as (
   select *
   from {{ source('data_tervik', 'orders_tax_status') }}
 )
-select * from src
+select 
+  *
+  ,current_timestamp() as ingestion_timestamp 
+from src
